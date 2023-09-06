@@ -4,6 +4,18 @@ const list = document.getElementById("notes-list");
 const col = document.getElementById("col");
 const empty = document.getElementById("no-notes");
 
+addEventListener("keydown", (e) => {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        if (note.value == "") {
+            alert("A note can't be empty.");
+        } else {
+            empty.innerHTML = "";
+            createNote();
+        }
+    }
+})
+
 addbtn.addEventListener("click", () => {
     if (note.value) {
         empty.innerHTML = "";
